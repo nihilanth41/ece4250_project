@@ -159,10 +159,18 @@ begin
 			shcon <= '1'; -- Activate the shift register
 			ld <= '1' -- Load shift register from data bus
 			next_state <= 27;
-		 when 27 =>
+		 when 27 => -- Perform single right shift >> 
 			shcon <= '1'; -- Activate shift register (i.e. keep activated)
 			sh <= '1'; -- unnecessary? 
 			next_state <= 28;
+		 --when 28 =>  
+			-- Load immediate value contained in Rd into counter
+			-- Decrement counter, if 0 then finished goto state 29
+			-- else continue shifting goto state 27
+			--tri <= '0'; -- connect register to data bus
+			--rdoe <= '1' -- Place Rd on register bus	
+			--r_w <= '1' -- Read from register
+		 --when 29
 		 when 28 =>
 		    tri <= '0'; -- Allow register to connect to databus
 			rdoe <= '1'; -- Place register destination (Rd) on register bus

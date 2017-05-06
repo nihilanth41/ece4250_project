@@ -21,10 +21,10 @@ begin
     process(address)
     begin
          CASE address(9 downto 2) IS
-            WHEN "00000000" => data_out <= x"80000004";
-            WHEN "00000001" => data_out <= x"81000002";
-            WHEN "00000010" => data_out <= x"52100000";
-            WHEN "00000100" => data_out <= x"00000000";
+            WHEN "00000000" => data_out <= x"81008846";
+            WHEN "00000001" => data_out <= x"B2010000";
+            --WHEN "00000010" => data_out <= x"52100000";
+            --WHEN "00000100" => data_out <= x"00000000";
             WHEN OTHERS => data_out <= x"00000000";
            end case;
     end process;

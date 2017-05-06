@@ -13,7 +13,7 @@ package common is
    constant stm_opcode : std_logic_vector(3 downto 0) := "0111";       
    constant lod_opcode : std_logic_vector(3 downto 0) := "1000";       
    constant sto_opcode : std_logic_vector(3 downto 0) := "1001";
-   constant stl_opcode : std_logic_vector(3 downto 0) := "1010"; --opcode A (H)
+   constant stl_opcode : std_logic_vector(3 downto 0) := "1011"; --opcode B (H)
    constant brn_opcode : std_logic_vector(3 downto 0) := "1100";       
    constant cal_opcode : std_logic_vector(3 downto 0) := "1101";       
    constant hop_opcode : std_logic_vector(3 downto 0) := "1110";       

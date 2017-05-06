@@ -39,7 +39,7 @@ begin
          when add_opcode => opcode_addr <= 5;
          when sub_opcode => opcode_addr <= 5;
          when stm_opcode => opcode_addr <= 8;
-		 when stl_opcode => opcode_addr <= 27; -- STL go to state 26
+	 when stl_opcode => opcode_addr <= 27; -- STL go to state 26
          when lod_opcode => opcode_addr <= 11;
          when sto_opcode => opcode_addr <= 13;
          when brn_opcode => opcode_addr <= 15;
@@ -151,18 +151,18 @@ begin
             next_state <= 0; 
          when 25 => -- HALT
             halt <= '1';
-			next_state <= 25;
+	    next_state <= 25;
 		 when 27 => -- STL
 			tri<='0'; -- Allow register to connect to data bus
 			rs1oe <= '1'; -- Select rs1 as source 1 and place it on the register bus
 			r_w <= '1'; -- Assert r_w to indicate we are reading the register
 			shcon <= '1'; -- Activate the shift register
 			ld <= '1'; -- Load shift register from data bus
-			next_state <= 27;
+			next_state <= 28;
 		 when 28 => -- Perform single right shift >> 
 			shcon <= '1'; -- Activate shift register (i.e. keep activated)
 			--sh <= '1'; -- unnecessary? 
-			next_state <= 28;
+			next_state <= 29;
 		 --when 28 =>  
 			-- Load immediate value contained in Rd into counter
 			-- Decrement counter, if 0 then finished goto state 29

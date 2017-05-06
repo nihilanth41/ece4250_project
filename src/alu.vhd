@@ -51,7 +51,8 @@ begin
          when not_opcode => result <= '0' & (x_reg xor "11111111111111111111111111111111");
          when and_opcode => result <= '0' & (x_reg and y_reg);
          when or_opcode  => result <= '0' & (x_reg or y_reg);
-         when stm_opcode => result <= sh_reg(31) & sh_reg(30 downto 0) & '0';
+         when stm_opcode => result <= sh_reg(31) & sh_reg(30 downto 0) & '0'; 
+	 when stl_opcode => result <= sh_reg(0) & '0' & sh_reg(31 downto 1); -- LSB goes to carry (result(32))
          when others => result <= "000000000000000000000000000000000";       
       end case;
    end process;
